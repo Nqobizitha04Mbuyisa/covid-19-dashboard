@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19 Dashboard</title>
     <link rel="stylesheet" href="style.css">
+  
 </head>
 
 <body>
 
-    <h1>COVID-19 Early Outbreak Dashboard</h1>
+    <div class="dashboard-header">
+
+        <div class="author-name">
+            Nqobizitha Mbuyisa
+        </div>
+
+        <h1>COVID-19 Early Outbreak Dashboard</h1>
+
+        <p class="subtitle">
+            COVID-19 outbreak trends across selected countries, February–March 2020
+        </p>
+
+    </div>
 
     <label for="countrySelect">Select Country:</label>
 
@@ -41,16 +54,26 @@
 
     </div>
 
-    <div class="chart-container">
-        <canvas id="casesChart"></canvas>
-    </div>
+    <h2 class="section-title">Cumulative Cases Over Time</h2>
 
-    <div class="chart-container">
-        <canvas id="dailyCasesChart"></canvas>
-    </div>
+   <div class="chart-container">
+      <canvas id="casesChart"></canvas>
+   </div>
+
+   <h2 class="section-title">Daily New Cases</h2>
+
+   <div class="chart-container">
+      <canvas id="dailyCasesChart"></canvas>
+   </div>
+
+   <footer>
+    Data source: Johns Hopkins CSSE COVID-19 Data Repository
+    <br>
+    Period: February–March 2020
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-
+    
 </body>
 </html>

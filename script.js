@@ -18,6 +18,7 @@ async function loadCovidData() {
 
         const countrySelect = document.getElementById("countrySelect");
 
+        // Add countries to dropdown
         covidData.forEach(country => {
             const option = document.createElement("option");
 
@@ -27,6 +28,7 @@ async function loadCovidData() {
             countrySelect.appendChild(option);
         });
 
+        // Listen for country selection
         countrySelect.addEventListener("change", function () {
             const selectedCountry = this.value;
 
@@ -43,105 +45,173 @@ async function loadCovidData() {
 
 function createChart(countryName) {
 
+    // Find selected country
     const country = covidData.find(
         country => country.country === countryName
     );
 
-    const dates = country.data.map(record => record.date);
+    // Get dates
+    const dates = country.data.map(
+        record => record.date
+    );
 
+    // Get cumulative confirmed cases
     const confirmedCases = country.data.map(
         record => record.confirmed
     );
 
-    const deaths = country.data[country.data.length - 1].deaths;
+    // Get cumulative deaths
+    const deathsData = country.data.map(
+        record => record.deaths
+    );
 
-    const recovered = country.data[country.data.length - 1].recovered;
+    // Get cumulative recoveries
+    const recoveredData = country.data.map(
+        record => record.recovered
+    );
 
-    const confirmed = country.data[country.data.length - 1].confirmed;
 
+    // Get latest values
+    const latestData = country.data[country.data.length - 1];
+
+    const deaths = latestData.deaths;
+    const recovered = latestData.recovered;
+    const confirmed = latestData.confirmed;
+
+    // Calculate active cases
     const active = confirmed - deaths - recovered;
 
-    const ctx = document.getElementById("casesChart");
 
+    // Update metric cards
     document.getElementById("confirmedMetric").textContent = confirmed;
     document.getElementById("deathsMetric").textContent = deaths;
     document.getElementById("recoveredMetric").textContent = recovered;
     document.getElementById("activeMetric").textContent = active;
 
 
+    // Calculate daily new cases
     const dailyCases = country.data.map((record, index) => {
 
-    if (index === 0) {
-        return 0;
-    }
+        // First available day has no previous day
+        if (index === 0) {
+            return 0;
+        }
 
-    return record.confirmed - country.data[index - 1].confirmed;
-   });
+        return record.confirmed - country.data[index - 1].confirmed;
+    });
 
+
+    // --------------------------------
+    // CUMULATIVE CASES LINE CHART
+    // --------------------------------
+
+    const ctx = document.getElementById("casesChart");
+
+    // Destroy previous chart before creating a new one
     if (casesChart) {
         casesChart.destroy();
     }
 
     casesChart = new Chart(ctx, {
+
         type: "line",
 
         data: {
+
             labels: dates,
 
-            datasets: [{
-                label: `${countryName} Confirmed Cases`,
-                data: confirmedCases,
-                borderWidth: 2,
-                tension: 0.2
-            }]
+            datasets: [
+
+                {
+                    label: "Confirmed Cases",
+                    data: confirmedCases,
+                    borderWidth: 2,
+                    tension: 0.2
+                },
+
+                {
+                    label: "Deaths",
+                    data: deathsData,
+                    borderWidth: 2,
+                    tension: 0.2
+                },
+
+                {
+                    label: "Recoveries",
+                    data: recoveredData,
+                    borderWidth: 2,
+                    tension: 0.2
+                }
+
+            ]
         },
 
         options: {
+
             responsive: true,
+
             maintainAspectRatio: false,
 
             scales: {
+
                 y: {
                     beginAtZero: true
                 }
+
             }
         }
     });
 
-    
-if (dailyCasesChart) {
-    dailyCasesChart.destroy();
-}
 
-const dailyCasesCtx = document.getElementById("dailyCasesChart");
+    // --------------------------------
+    // DAILY NEW CASES BAR CHART
+    // --------------------------------
 
-dailyCasesChart = new Chart(dailyCasesCtx, {
-    type: "bar",
+    const dailyCasesCtx =
+        document.getElementById("dailyCasesChart");
 
-    data: {
-        labels: dates,
+    // Destroy previous chart
+    if (dailyCasesChart) {
+        dailyCasesChart.destroy();
+    }
 
-        datasets: [{
-            label: `${countryName} Daily New Cases`,
-            data: dailyCases,
-            borderWidth: 1
-        }]
-    },
+    dailyCasesChart = new Chart(dailyCasesCtx, {
 
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        type: "bar",
 
-        scales: {
-            y: {
-                beginAtZero: true
+        data: {
+
+            labels: dates,
+
+            datasets: [
+
+                {
+                    label: `${countryName} Daily New Cases`,
+                    data: dailyCases,
+                    borderWidth: 1
+                }
+
+            ]
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            scales: {
+
+                y: {
+                    beginAtZero: true
+                }
+
             }
         }
-    }
-});
-
+    });
 
 }
 
 
+// Load the data when the page opens
 loadCovidData();
