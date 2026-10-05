@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19 Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -12,10 +13,15 @@
 
     <label for="countrySelect">Select Country:</label>
 
+
     <select id="countrySelect">
 
     </select>
+    <div class="chart-container">
+        <canvas id="casesChart"></canvas>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 
 </body>

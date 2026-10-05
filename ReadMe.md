@@ -1,28 +1,44 @@
-# COVID-19 Early Outbreak Dashboard
+## Milestone 1 — Setup & Data Loading
 
-An interactive web dashboard for exploring COVID-19 outbreak trends
-during February–March 2020.
+- [x] Project structure created
+- [x] COVID-19 JSON dataset loaded
+- [x] Country data extracted using JavaScript
+- [x] Country selector populated dynamically
+- [x] Data logged to browser console
+
+## Milestone 2 — Charts Implementation
+
+- [x] Chart.js integrated
+- [x] Line chart implemented
+- [x] Confirmed cases displayed over time
+- [x] Chart updates when country changes
+- [x] Tested with multiple countries
 
 
-### Milestone 1 — Setup & Data Loading
+### Milestone 2 Testing Evidence
 
-Project structure created
-COVID-19 JSON dataset loaded
-Country data extracted using JavaScript
-Country selector populated dynamically
-Data logged to browser console
+The confirmed cases line chart was tested by selecting each
+available country from the dropdown. The chart updates to
+display the corresponding confirmed case data.
+
+#### China
+
+![China chart](Screenshots/China.png)
+
+#### Italy
+
+![Italy chart](Screenshots/Italy.png)
+
+#### South Korea
+
+![South Korea chart](Screenshots/South%20Korea.png)
+
+#### United States
+
+![United States chart](Screenshots/United%20States.png)
+
+#### South Africa
+
+![South Africa chart](Screenshots/South%20Africa.png)
 
 
-## Running the Project
-
-1. Clone the repository.
-2. Open the project in VS Code.
-3. Start the project using Live Server.
-4. Open the local URL provided by Live Server.
-5. Select a country from the country dropdown.
-
-## Current Functionality
-
-The application currently loads the COVID-19 JSON dataset,
-extracts the available countries, and dynamically populates
-the country selector.
