@@ -1,5 +1,6 @@
 let covidData;
 let casesChart;
+let dailyCasesChart;
 
 async function loadCovidData() {
     try {
@@ -52,7 +53,30 @@ function createChart(countryName) {
         record => record.confirmed
     );
 
+    const deaths = country.data[country.data.length - 1].deaths;
+
+    const recovered = country.data[country.data.length - 1].recovered;
+
+    const confirmed = country.data[country.data.length - 1].confirmed;
+
+    const active = confirmed - deaths - recovered;
+
     const ctx = document.getElementById("casesChart");
+
+    document.getElementById("confirmedMetric").textContent = confirmed;
+    document.getElementById("deathsMetric").textContent = deaths;
+    document.getElementById("recoveredMetric").textContent = recovered;
+    document.getElementById("activeMetric").textContent = active;
+
+
+    const dailyCases = country.data.map((record, index) => {
+
+    if (index === 0) {
+        return 0;
+    }
+
+    return record.confirmed - country.data[index - 1].confirmed;
+   });
 
     if (casesChart) {
         casesChart.destroy();
@@ -83,6 +107,40 @@ function createChart(countryName) {
             }
         }
     });
+
+    
+if (dailyCasesChart) {
+    dailyCasesChart.destroy();
+}
+
+const dailyCasesCtx = document.getElementById("dailyCasesChart");
+
+dailyCasesChart = new Chart(dailyCasesCtx, {
+    type: "bar",
+
+    data: {
+        labels: dates,
+
+        datasets: [{
+            label: `${countryName} Daily New Cases`,
+            data: dailyCases,
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
 }
 
 

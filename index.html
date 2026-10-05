@@ -13,12 +13,40 @@
 
     <label for="countrySelect">Select Country:</label>
 
-
     <select id="countrySelect">
-
+        <option value="">Select a country</option>
     </select>
+
+    <div class="metrics">
+
+        <div class="metric-card">
+            <h3>Confirmed</h3>
+            <p id="confirmedMetric">-</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Deaths</h3>
+            <p id="deathsMetric">-</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Recoveries</h3>
+            <p id="recoveredMetric">-</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Active</h3>
+            <p id="activeMetric">-</p>
+        </div>
+
+    </div>
+
     <div class="chart-container">
         <canvas id="casesChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="dailyCasesChart"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

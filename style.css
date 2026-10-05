@@ -4,3 +4,29 @@
     height: 450px;
     margin: 30px auto;
 }
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.metric-card {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.metric-card h3 {
+    margin-bottom: 10px;
+}
+
+.metric-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}

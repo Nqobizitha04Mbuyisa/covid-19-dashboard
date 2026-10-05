@@ -41,4 +41,35 @@ display the corresponding confirmed case data.
 
 ![South Africa chart](Screenshots/South%20Africa.png)
 
+## Milestone 3 — All Charts & Metrics
+
+Key metric cards implemented
+Latest confirmed cases displayed
+Latest deaths displayed
+Latest recoveries displayed
+Active cases calculated
+Daily new cases calculated from cumulative data
+Daily new cases bar chart implemented
+Metrics and charts update when country changes
+Tested with all five countries
+
+### Milestone 3 Testing Evidence
+
+The dashboard was tested using all five available countries.
+The metric cards, confirmed cases chart, and daily new cases
+chart update according to the selected country's data.
+
+Countries tested:
+
+- China
+![China chart](Screenshots/China3.png)
+- Italy
+![Italy chart](Screenshots/Italy3.png)
+- South Korea
+![South Korea chart](Screenshots/South%20Korea3.png)
+- United States
+![United States chart](Screenshots/United%20States3.png)
+- South Africa
+![South Africa chart](Screenshots/South%20Africa3.png)
+
 
