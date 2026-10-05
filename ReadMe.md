@@ -4,7 +4,7 @@ An interactive dashboard exploring COVID-19 outbreak trends across selected coun
 
 ## Live Demo
 
-👉 **[View the Live Dashboard](https://nqobizitha04mbuyisa.github.io/covid-19-dashboard/)**
+**[View the Live Dashboard](https://nqobizitha04mbuyisa.github.io/covid-19-dashboard/)**
 
 ## Features
 
