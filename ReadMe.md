@@ -73,3 +73,32 @@ Countries tested:
 ![South Africa chart](Screenshots/South%20Africa3.png)
 
 
+## Running the Project
+
+### Prerequisites
+
+Visual Studio Code
+Live Server extension for VS Code
+A modern web browser
+
+### Steps
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Nqobizitha04Mbuyisa/covid-19-dashboard.git
+
+
+2. Open the project folder in Visual Studio Code.
+
+3. Make sure the following files are in the project folder:
+- index.html
+- script.js
+- style.css
+- covid.json
+
+4. Right-click index.html and select Open with Live Server.
+
+5. The dashboard will open in the browser.
+
+6. Use the Select Country dropdown to explore the COVID-19 data for each country.
