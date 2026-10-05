@@ -1,4 +1,20 @@
-(Run the analysis[https://nqobizitha04mbuyisa.github.io/covid-19-dashboard/])
+# COVID-19 Early Outbreak Dashboard
+
+An interactive dashboard exploring COVID-19 outbreak trends across selected countries during February–March 2020.
+
+## Live Demo
+
+👉 **[View the Live Dashboard](https://nqobizitha04mbuyisa.github.io/covid-19-dashboard/)**
+
+## Features
+
+- Country selection
+- Confirmed, deaths, recoveries and active cases
+- Cumulative case trends
+- Daily new cases
+- Responsive dashboard
+- COVID-19 data from Johns Hopkins CSSE
+- 
 
 ## Milestone 1 — Setup & Data Loading
 
