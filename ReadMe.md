@@ -1,3 +1,5 @@
+(Run the analysis[https://nqobizitha04mbuyisa.github.io/covid-19-dashboard/])
+
 ## Milestone 1 — Setup & Data Loading
 
 - [x] Project structure created
